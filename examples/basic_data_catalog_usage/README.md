@@ -11,9 +11,12 @@ It will:
 
 | Name | Description | Type | Default | Required |
 |------|-------------|-------------------|---------|:--------:|
-| tag\_templates | A list of objects which include id, description, display_name and fields | <pre>list(object({ <br>    id           = string<br>    display_name = optional(string)<br>    force_delete = optional(bool)<br>    fields = list(object({      <br>      id           = string      <br>      type         = string      <br>      values       = optional(list(string))      <br>      display_name = optional(string)      <br>      is_required  = optional(bool)      <br>      order        = optional(number)    <br>   }))  <br>}))</pre> | n/a | yes |
+| tag\_templates | A list of objects which include id, display_name and fields | <pre>list(object({ <br>    id           = string<br>    display_name = optional(string)<br>    force_delete = optional(bool)<br>    fields = list(object({      <br>      id           = string      <br>      type         = string      <br>      values       = optional(list(string))      <br>      display_name = optional(string)      <br>      is_required  = optional(bool)      <br>      order        = optional(number)    <br>   }))  <br>}))</pre> | n/a | yes |
 | project\_id | The project ID to host the tag templates in | `string` | n/a | yes |
 | region | The region to host the tag templates in | `string` | n/a | yes |
+| entry\_groups | A list of objects which include id, description and display_name | <pre>list(object({ <br>    id           = string<br>    display_name = optional(string)<br>    description = optional(string)<br>}))</pre> | `[]` | no |
+| tags | A list of objects which include id, tag_template_id and fields | <pre>list(object({ <br>    id           = string<br>    tag_template_id = string<br>    parent = string<br>    column = optional(string)<br>    fields = list(object({      <br>      id           = string      <br>      type         = string      <br>      value       = string      <br>      spec  = optional(bool)      <br>      display_name = optional(string)      <br>      order        = optional(number)    <br>   }))  <br>}))</pre> | `[]` | no |
+
 
 ## Outputs
 

@@ -29,7 +29,7 @@ variable "tags" {
   type = list(object({
     id              = string
     tag_template_id = string
-    parent          = optional(string)
+    parent          = string
     column          = optional(string)
     fields = list(object({
       name         = string
