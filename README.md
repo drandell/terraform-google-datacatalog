@@ -20,7 +20,7 @@ These sections describe requirements for using this module.
 
 The following dependencies must be available:
 
-- [Terraform](https://www.terraform.io/downloads.html) >= 0.15.0
+- [Terraform](https://www.terraform.io/downloads.html) >= 1.0.0
 - [Terraform Provider for GCP](https://registry.terraform.io/providers/hashicorp/google/latest) >= v3.50
 
 ### Service Account
@@ -43,7 +43,7 @@ resources of this module:
 ## Install
 
 ### Terraform
-Be sure you have the correct Terraform version (0.15.x), you can choose the binary here:
+Be sure you have the correct Terraform version (1.0.0), you can choose the binary here:
 - https://releases.hashicorp.com/terraform/
 
 ## File structure
