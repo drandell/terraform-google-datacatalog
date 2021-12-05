@@ -21,7 +21,7 @@ These sections describe requirements for using this module.
 The following dependencies must be available:
 
 - [Terraform](https://www.terraform.io/downloads.html) >= 1.0.0
-- [Terraform Provider for GCP](https://registry.terraform.io/providers/hashicorp/google/latest) >= v3.50
+- [Terraform Provider for GCP](https://registry.terraform.io/providers/hashicorp/google/latest) >= v4.0.0
 
 ### Service Account
 
