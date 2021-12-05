@@ -34,7 +34,7 @@ resource "google_data_catalog_tag" "tag" {
             field_name    = fields.key
             display_name  = fields.value["display_name"]
             order         = fields.value["order"]
-            enum_value  = fields.value["value"]
+            enum_value    = fields.value["value"]
         }
     }
 
