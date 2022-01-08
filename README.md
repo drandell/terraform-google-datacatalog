@@ -6,7 +6,7 @@ This module allows the creation of Google Cloud Platform Data Catalog Tag Templa
 
 ## Compatibility 
 
-This module is meant for use with Terraform 0.15. 
+This module is meant for use with Terraform 1.0.0.
 
 ## Usage
 
