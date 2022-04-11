@@ -13,7 +13,8 @@ variable "tag_templates" {
       order        = optional(number)
     }))
   }))
-  description = "(Required) A list of tag template resource objects"
+  description = "(Optional) A list of tag template resource objects"
+  default     = []
 }
 
 variable "entry_groups" {
@@ -22,8 +23,8 @@ variable "entry_groups" {
     display_name = optional(string)
     description  = optional(string)
   }))
-  default = []
   description = "(Optional) A list of entry group objects"
+  default     = []
 }
 
 variable "tags" {
@@ -42,6 +43,33 @@ variable "tags" {
     }))
   }))
   description = "(Optional) A list of tag resource objects"
+  default     = []
+}
+
+variable "taxonomy_policy_tags" {
+  type = list(object({
+    id                     = string
+    display_name           = string
+    description            = optional(string)
+    activated_policy_types = optional(list(string))
+    policy_tags = optional(list(object({
+      display_name = string
+      description  = optional(string)
+      level_two    = optional(object({
+        display_name = string
+        description  = optional(string)
+      })),
+      level_three   = optional(object({
+        display_name = string
+        description  = optional(string)
+      })),
+      level_four   = optional(object({
+        display_name = string
+        description  = optional(string)
+      }))
+    })))
+  }))
+  description = "(Optional) A list of taxonomy and policy tags"
   default     = []
 }
 

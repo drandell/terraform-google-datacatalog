@@ -32,6 +32,7 @@ the resources of this module:
 - TagTemplate User: `roles/datacatalog.tagTemplateUser`
 - Tag Editor: `roles/datacatalog.tagEditor`
 - EntryGroup Creator: `roles/datacatalog.entryGroupCreator`
+- Policy Tag Admin: `roles/datacatalog.categoryAdmin`
 
 ### APIs
 
