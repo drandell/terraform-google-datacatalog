@@ -1,12 +1,12 @@
 locals {
-  
+
   lvl_one_policy_tags = flatten([
     for taxonomy in var.taxonomy_policy_tags : [
       for tag in lookup(taxonomy, "policy_tags", {}) : {
-        taxonomy_id = taxonomy["id"]
-        id  = tag != {} ? lower(trimspace(tag["display_name"])) : null
+        taxonomy_id  = taxonomy["id"]
+        id           = tag != {} ? lower(trimspace(tag["display_name"])) : null
         display_name = tag != {} ? tag["display_name"] : null
-        description = tag != {} ? tag["description"] : null
+        description  = tag != {} ? tag["description"] : null
       }
     ]
   ])
@@ -14,11 +14,11 @@ locals {
   lvl_two_policy_tags = flatten([
     for taxonomy in var.taxonomy_policy_tags : [
       for tag in lookup(taxonomy, "policy_tags", {}) : {
-        taxonomy_id = taxonomy["id"]
-        lvl_one_id  = tag != {} ? lower(trimspace(tag["display_name"])) : null
-        id  = tag["level_two"] != null ? lower(trimspace(tag["level_two"]["display_name"])) : null
+        taxonomy_id  = taxonomy["id"]
+        lvl_one_id   = tag != {} ? lower(trimspace(tag["display_name"])) : null
+        id           = tag["level_two"] != null ? lower(trimspace(tag["level_two"]["display_name"])) : null
         display_name = tag["level_two"] != null ? tag["level_two"]["display_name"] : null
-        description = tag["level_two"] != null ? tag["level_two"]["description"] : null
+        description  = tag["level_two"] != null ? tag["level_two"]["description"] : null
       }
     ]
   ])
@@ -26,11 +26,11 @@ locals {
   lvl_three_policy_tags = flatten([
     for taxonomy in var.taxonomy_policy_tags : [
       for tag in lookup(taxonomy, "policy_tags", {}) : {
-        taxonomy_id = taxonomy["id"]
-        lvl_two_id  = tag != {} && tag["level_two"] != null ? lower(trimspace(tag["level_two"]["display_name"])) : null
-        id  = tag["level_three"] != null ? lower(trimspace(tag["level_three"]["display_name"])) : null
+        taxonomy_id  = taxonomy["id"]
+        lvl_two_id   = tag != {} && tag["level_two"] != null ? lower(trimspace(tag["level_two"]["display_name"])) : null
+        id           = tag["level_three"] != null ? lower(trimspace(tag["level_three"]["display_name"])) : null
         display_name = tag["level_three"] != null ? tag["level_three"]["display_name"] : null
-        description = tag["level_three"] != null ? tag["level_three"]["description"] : null
+        description  = tag["level_three"] != null ? tag["level_three"]["description"] : null
       }
     ]
   ])
@@ -38,11 +38,11 @@ locals {
   lvl_four_policy_tags = flatten([
     for taxonomy in var.taxonomy_policy_tags : [
       for tag in lookup(taxonomy, "policy_tags", {}) : {
-        taxonomy_id = taxonomy["id"]
-        lvl_three_id  = tag != {} && tag["level_two"] != null && tag["level_three"] != null ? lower(trimspace(tag["level_three"]["display_name"])) : null
-        id  = tag["level_four"] != null ? lower(trimspace(tag["level_four"]["display_name"])) : null
+        taxonomy_id  = taxonomy["id"]
+        lvl_three_id = tag != {} && tag["level_two"] != null && tag["level_three"] != null ? lower(trimspace(tag["level_three"]["display_name"])) : null
+        id           = tag["level_four"] != null ? lower(trimspace(tag["level_four"]["display_name"])) : null
         display_name = tag["level_four"] != null ? tag["level_four"]["display_name"] : null
-        description = tag["level_four"] != null ? tag["level_four"]["description"] : null
+        description  = tag["level_four"] != null ? tag["level_four"]["description"] : null
       }
     ]
   ])
@@ -64,10 +64,10 @@ resource "google_data_catalog_taxonomy" "collection" {
 resource "google_data_catalog_policy_tag" "lvl_one" {
   provider = google-beta
 
-  for_each          = { for tag in local.lvl_one_policy_tags : tag["id"] => tag if tag["id"] != null }
-  taxonomy          = google_data_catalog_taxonomy.collection[each.value["taxonomy_id"]].id
-  display_name      = each.value["display_name"]
-  description       = each.value["description"]
+  for_each     = { for tag in local.lvl_one_policy_tags : tag["id"] => tag if tag["id"] != null }
+  taxonomy     = google_data_catalog_taxonomy.collection[each.value["taxonomy_id"]].id
+  display_name = each.value["display_name"]
+  description  = each.value["description"]
 }
 
 resource "google_data_catalog_policy_tag" "lvl_two" {

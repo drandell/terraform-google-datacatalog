@@ -30,7 +30,7 @@ module "data_catalog_tags" {
 module "data_catalog_taxonomy_policy_tags" {
   source = "./modules/taxonomy-policy-tags"
 
-  project      = var.project_id
-  region       = var.region
-  taxonomy_policy_tags  = var.taxonomy_policy_tags
+  project              = var.project_id
+  region               = var.region
+  taxonomy_policy_tags = var.taxonomy_policy_tags
 }

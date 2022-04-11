@@ -55,15 +55,15 @@ variable "taxonomy_policy_tags" {
     policy_tags = optional(list(object({
       display_name = string
       description  = optional(string)
-      level_two    = optional(object({
+      level_two = optional(object({
         display_name = string
         description  = optional(string)
       })),
-      level_three   = optional(object({
+      level_three = optional(object({
         display_name = string
         description  = optional(string)
       })),
-      level_four   = optional(object({
+      level_four = optional(object({
         display_name = string
         description  = optional(string)
       }))
