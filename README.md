@@ -2,7 +2,7 @@
 
 *UNOFFICIAL*
 
-This module allows the creation of Google Cloud Platform Data Catalog Tag Templates, Entry Groups and Tags.  
+This module allows the creation of Google Cloud Platform Data Catalog Tag Templates, Entry Groups, Tags, Taxonomies and Policy Tags.  
 
 ## Compatibility 
 
