@@ -93,10 +93,10 @@ resource "google_data_catalog_policy_tag" "top_level" {
 resource "google_data_catalog_policy_tag" "lvl_one" {
   provider = google-beta
 
-  for_each     = { for tag in local.lvl_one_policy_tags : tag["id"] => tag if tag["id"] != null }
-  taxonomy     = google_data_catalog_taxonomy.collection[each.value["taxonomy_id"]].id
-  display_name = each.value["display_name"]
-  description  = each.value["description"]
+  for_each          = { for tag in local.lvl_one_policy_tags : tag["id"] => tag if tag["id"] != null }
+  taxonomy          = google_data_catalog_taxonomy.collection[each.value["taxonomy_id"]].id
+  display_name      = each.value["display_name"]
+  description       = each.value["description"]
   parent_policy_tag = google_data_catalog_policy_tag.top_level[each.value["top_level_id"]].id
 
   depends_on = [

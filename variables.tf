@@ -1,3 +1,13 @@
+variable "project_id" {
+  type        = string
+  description = "(Required) The project ID to host the resource in"
+}
+
+variable "region" {
+  type        = string
+  description = "(Required) The region to host the resource in"
+}
+
 variable "tag_templates" {
   type = list(object({
     id           = string
@@ -53,29 +63,29 @@ variable "taxonomy_policy_tags" {
     description            = optional(string)
     activated_policy_types = optional(list(string))
     policy_tags = optional(list(object({
-      id = string
+      id           = string
       display_name = string
       description  = optional(string)
       level_one = optional(list(object({
-        id = string
+        id           = string
         display_name = string
         parent_tag   = string
         description  = optional(string)
       }))),
       level_two = optional(list(object({
-        id = string
+        id           = string
         display_name = string
         parent_tag   = string
         description  = optional(string)
       }))),
       level_three = optional(list(object({
-        id = string
+        id           = string
         display_name = string
         parent_tag   = string
         description  = optional(string)
       }))),
       level_four = optional(list(object({
-        id = string
+        id           = string
         display_name = string
         parent_tag   = string
         description  = optional(string)
@@ -84,14 +94,4 @@ variable "taxonomy_policy_tags" {
   }))
   description = "(Optional) A list of taxonomy and policy tags"
   default     = []
-}
-
-variable "project_id" {
-  type        = string
-  description = "(Optional) The project ID to host the resource in"
-}
-
-variable "region" {
-  type        = string
-  description = "(Optional) The region to host the resource in"
 }

@@ -29,6 +29,6 @@ output "policy_tag_lvl_four_self_links" {
 }
 
 output "policy_tag_self_links" {
-   value       = [for policy_tag in merge( google_data_catalog_policy_tag.top_level, google_data_catalog_policy_tag.lvl_one, google_data_catalog_policy_tag.lvl_two, google_data_catalog_policy_tag.lvl_three, google_data_catalog_policy_tag.lvl_four) : policy_tag["name"]]
-  description = "List of all policy tags self links" 
+  value       = [for policy_tag in merge(google_data_catalog_policy_tag.top_level, google_data_catalog_policy_tag.lvl_one, google_data_catalog_policy_tag.lvl_two, google_data_catalog_policy_tag.lvl_three, google_data_catalog_policy_tag.lvl_four) : policy_tag["name"]]
+  description = "List of all policy tags self links"
 }
