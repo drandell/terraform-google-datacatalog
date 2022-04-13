@@ -18,16 +18,16 @@ variable "tags" {
 
 variable "tag_templates" {
   type = map(object({
-    name         = string
+    name = string
   }))
-  default = {}
+  default     = {}
   description = "(Required) A map of tag template objects"
 }
 
 variable "entry_groups" {
   type = map(object({
-    name         = string
+    name = string
   }))
-  default = {}
+  default     = {}
   description = "(Optional) A map of entry group objects"
 }

@@ -6,7 +6,7 @@ locals {
 
 resource "google_data_catalog_tag_template" "tag_template" {
   for_each        = local.tag_template
-  project         = var.project_id
+  project         = var.project
   region          = var.region
   tag_template_id = lower(each.key)
   display_name    = each.value["display_name"]

@@ -36,7 +36,7 @@ variable "tag_templates" {
   }
 }
 
-variable "project_id" {
+variable "project" {
   type        = string
   description = "(Optional) The project ID to host the resource in"
 }

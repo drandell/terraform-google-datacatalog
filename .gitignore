@@ -27,8 +27,9 @@ override.tf.json
 
 # Include tfplan files to ignore the plan output of command: terraform plan -out=tfplan
 # example: *tfplan*
-examples/basic_data_catalog_usage/terraform.tfvars
-examples/basic_data_catalog_usage/backend.tf
 examples/basic_data_catalog_usage/key.json
 examples/basic_data_catalog_usage/.terraform.lock.hcl
 examples/basic_data_catalog_usage/plan
+examples/data_catalog_taxonomy_policy_tags/key.json
+examples/data_catalog_taxonomy_policy_tags/plan
+examples/data_catalog_taxonomy_policy_tags/.terraform.lock.hcl
