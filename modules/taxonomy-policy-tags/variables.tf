@@ -5,29 +5,29 @@ variable "taxonomy_policy_tags" {
     description            = optional(string)
     activated_policy_types = optional(list(string))
     policy_tags = optional(list(object({
-      id = string
+      id           = string
       display_name = string
       description  = optional(string)
       level_one = optional(list(object({
-        id = string
+        id           = string
         display_name = string
         parent_tag   = string
         description  = optional(string)
       }))),
       level_two = optional(list(object({
-        id = string
+        id           = string
         display_name = string
         parent_tag   = string
         description  = optional(string)
       }))),
       level_three = optional(list(object({
-        id = string
+        id           = string
         display_name = string
         parent_tag   = string
         description  = optional(string)
       }))),
       level_four = optional(list(object({
-        id = string
+        id           = string
         display_name = string
         parent_tag   = string
         description  = optional(string)
@@ -37,7 +37,7 @@ variable "taxonomy_policy_tags" {
   description = "(Required) A list of taxonomy and policy tags"
 
   validation {
-    condition     = alltrue([ for taxonomy in var.taxonomy_policy_tags : alltrue([ for policy_type in lookup(taxonomy, "activated_policy_types", "POLICY_TYPE_UNSPECIFIED") : contains(["POLICY_TYPE_UNSPECIFIED", "FINE_GRAINED_ACCESS_CONTROL"], policy_type) ]) ])
+    condition     = alltrue([for taxonomy in var.taxonomy_policy_tags : alltrue([for policy_type in lookup(taxonomy, "activated_policy_types", "POLICY_TYPE_UNSPECIFIED") : contains(["POLICY_TYPE_UNSPECIFIED", "FINE_GRAINED_ACCESS_CONTROL"], policy_type)])])
     error_message = "Supported policy types are 'FINE_GRAINED_ACCESS_CONTROL' and 'POLICY_TYPE_UNSPECIFIED'."
   }
 }

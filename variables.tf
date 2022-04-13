@@ -63,29 +63,29 @@ variable "taxonomy_policy_tags" {
     description            = optional(string)
     activated_policy_types = optional(list(string))
     policy_tags = optional(list(object({
-      id = string
+      id           = string
       display_name = string
       description  = optional(string)
       level_one = optional(list(object({
-        id = string
+        id           = string
         display_name = string
         parent_tag   = string
         description  = optional(string)
       }))),
       level_two = optional(list(object({
-        id = string
+        id           = string
         display_name = string
         parent_tag   = string
         description  = optional(string)
       }))),
       level_three = optional(list(object({
-        id = string
+        id           = string
         display_name = string
         parent_tag   = string
         description  = optional(string)
       }))),
       level_four = optional(list(object({
-        id = string
+        id           = string
         display_name = string
         parent_tag   = string
         description  = optional(string)
