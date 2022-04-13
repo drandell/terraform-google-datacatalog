@@ -1,3 +1,13 @@
+variable "project_id" {
+  type        = string
+  description = "(Required) The project ID to host the resource in"
+}
+
+variable "region" {
+  type        = string
+  description = "(Required) The region to host the resource in"
+}
+
 variable "tag_templates" {
   type = list(object({
     id           = string
@@ -84,14 +94,4 @@ variable "taxonomy_policy_tags" {
   }))
   description = "(Optional) A list of taxonomy and policy tags"
   default     = []
-}
-
-variable "project_id" {
-  type        = string
-  description = "(Optional) The project ID to host the resource in"
-}
-
-variable "region" {
-  type        = string
-  description = "(Optional) The region to host the resource in"
 }
