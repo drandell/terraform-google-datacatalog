@@ -14,6 +14,18 @@ module "data_catalog_entry_groups" {
   entry_groups = var.entry_groups
 }
 
+module "data_catalog_entries" {
+  source = "./modules/entry-group"
+
+  project = var.project_id
+  region  = var.region
+  entries = var.entries
+
+  depends_on = [
+    module.data_catalog_entry_groups
+  ]
+}
+
 module "data_catalog_tags" {
   source = "./modules/tag"
 
