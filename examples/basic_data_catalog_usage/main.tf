@@ -1,4 +1,3 @@
-
 module "google_data_catalog" {
   source = "../../"
 

@@ -39,9 +39,9 @@ entry_groups = [
 
 entries = [
   {
-    id             = "my_entry"
-    entry_group_id = "my_entry_group"
-    type           = "custom_type"
+    id                    = "my_entry"
+    entry_group_id        = "my_entry_group"
+    type                  = "custom_type"
     user_specified_system = "my_custom_system"
   }
 ]
