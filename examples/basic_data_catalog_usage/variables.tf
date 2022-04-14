@@ -1,3 +1,13 @@
+variable "project_id" {
+  type        = string
+  description = "(Required) The project ID to host the resource in"
+}
+
+variable "region" {
+  type        = string
+  description = "(Required) The region to host the resource in"
+}
+
 variable "tag_templates" {
   type = list(object({
     id           = string
@@ -13,7 +23,8 @@ variable "tag_templates" {
       order        = optional(number)
     }))
   }))
-  description = "(Required) A list of tag template resource objects"
+  default     = []
+  description = "(Optional) A list of tag template resource objects"
 }
 
 variable "entry_groups" {
@@ -22,7 +33,24 @@ variable "entry_groups" {
     display_name = optional(string)
     description  = optional(string)
   }))
-  description = "(Required) A list of entry group objects"
+  default     = []
+  description = "(Optional) A list of entry group objects"
+}
+
+variable "entries" {
+  type = list(object({
+    id                    = string
+    entry_group_id        = string
+    type                  = string
+    file_patterns         = optional(list(string))
+    user_specified_system = optional(string)
+    linked_resource       = optional(string)
+    schema                = optional(string)
+    display_name          = optional(string)
+    description           = optional(string)
+  }))
+  default     = []
+  description = "(Optional) A list of entry objects"
 }
 
 variable "tags" {
@@ -42,14 +70,4 @@ variable "tags" {
   }))
   description = "(Optional) A list of tag resource objects"
   default     = []
-}
-
-variable "project_id" {
-  type        = string
-  description = "(Required) The project ID to host the resource in"
-}
-
-variable "region" {
-  type        = string
-  description = "(Required) The region to host the resource in"
 }

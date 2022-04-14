@@ -37,6 +37,22 @@ variable "entry_groups" {
   default     = []
 }
 
+variable "entries" {
+  type = list(object({
+    id                    = string
+    entry_group_id        = string
+    type                  = string
+    file_patterns         = optional(list(string))
+    user_specified_system = optional(string)
+    linked_resource       = optional(string)
+    schema                = optional(string)
+    display_name          = optional(string)
+    description           = optional(string)
+  }))
+  description = "(Optional) A list of entry objects"
+  default     = []
+}
+
 variable "tags" {
   type = list(object({
     id              = string

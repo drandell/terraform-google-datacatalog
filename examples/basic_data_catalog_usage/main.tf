@@ -6,5 +6,6 @@ module "google_data_catalog" {
   region        = var.region
   tag_templates = var.tag_templates
   entry_groups  = var.entry_groups
+  entries       = var.entries
   tags          = var.tags
 }

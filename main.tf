@@ -15,11 +15,12 @@ module "data_catalog_entry_groups" {
 }
 
 module "data_catalog_entries" {
-  source = "./modules/entry-group"
+  source = "./modules/entries"
 
   project = var.project_id
   region  = var.region
   entries = var.entries
+  entry_group_self_links = module.data_catalog_entry_groups.self_links
 
   depends_on = [
     module.data_catalog_entry_groups
