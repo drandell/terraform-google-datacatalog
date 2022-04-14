@@ -8,6 +8,11 @@ output "tag_template_self_links" {
   description = "The URI of the tag templates created"
 }
 
+output "entry_self_links" {
+  value       = [for entry in module.data_catalog_entries.self_links : entry["id"]]
+  description = "The URI of the entries created"
+}
+
 output "entry_group_self_links" {
   value       = [for entry_group in module.data_catalog_entry_groups.self_links : entry_group["id"]]
   description = "The URI of the entry groups created"
