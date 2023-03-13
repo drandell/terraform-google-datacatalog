@@ -4,6 +4,7 @@ locals {
 
 resource "google_data_catalog_tag" "tag" {
   for_each = local.tags
+
   template = coalesce(var.tag_templates[each.value.tag_template_id]["name"])
   parent   = coalesce(var.entry_groups[each.value.parent]["name"])
   column   = each.value.column

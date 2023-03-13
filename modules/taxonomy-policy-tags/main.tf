@@ -69,8 +69,6 @@ locals {
 }
 
 resource "google_data_catalog_taxonomy" "collection" {
-  provider = google-beta
-
   for_each               = { for taxonomy in var.taxonomy_policy_tags : taxonomy["id"] => taxonomy }
   project                = var.project
   region                 = var.region
@@ -82,18 +80,16 @@ resource "google_data_catalog_taxonomy" "collection" {
 // Bit of a hack, but currently policy tags can only be 4 layers deep
 // So lets just hard-code that into our configuration
 resource "google_data_catalog_policy_tag" "top_level" {
-  provider = google-beta
-
   for_each     = { for tag in local.top_level_policy_tags : tag["id"] => tag if tag["id"] != null }
+
   taxonomy     = google_data_catalog_taxonomy.collection[each.value["taxonomy_id"]].id
   display_name = each.value["display_name"]
   description  = each.value["description"]
 }
 
 resource "google_data_catalog_policy_tag" "lvl_one" {
-  provider = google-beta
-
   for_each          = { for tag in local.lvl_one_policy_tags : tag["id"] => tag if tag["id"] != null }
+
   taxonomy          = google_data_catalog_taxonomy.collection[each.value["taxonomy_id"]].id
   display_name      = each.value["display_name"]
   description       = each.value["description"]
@@ -105,9 +101,8 @@ resource "google_data_catalog_policy_tag" "lvl_one" {
 }
 
 resource "google_data_catalog_policy_tag" "lvl_two" {
-  provider = google-beta
-
   for_each          = { for tag in local.lvl_two_policy_tags : tag["id"] => tag if tag["id"] != null }
+
   taxonomy          = google_data_catalog_taxonomy.collection[each.value["taxonomy_id"]].id
   display_name      = each.value["display_name"]
   description       = each.value["description"]
@@ -120,9 +115,8 @@ resource "google_data_catalog_policy_tag" "lvl_two" {
 }
 
 resource "google_data_catalog_policy_tag" "lvl_three" {
-  provider = google-beta
-
   for_each          = { for tag in local.lvl_three_policy_tags : tag["id"] => tag if tag["id"] != null }
+
   taxonomy          = google_data_catalog_taxonomy.collection[each.value["taxonomy_id"]].id
   display_name      = each.value["display_name"]
   description       = each.value["description"]
@@ -136,9 +130,8 @@ resource "google_data_catalog_policy_tag" "lvl_three" {
 }
 
 resource "google_data_catalog_policy_tag" "lvl_four" {
-  provider = google-beta
-
   for_each          = { for tag in local.lvl_four_policy_tags : tag["id"] => tag if tag["id"] != null }
+
   taxonomy          = google_data_catalog_taxonomy.collection[each.value["taxonomy_id"]].id
   display_name      = each.value["display_name"]
   description       = each.value["description"]
