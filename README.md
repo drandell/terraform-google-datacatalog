@@ -6,7 +6,7 @@ This module allows the creation of Google Cloud Platform Data Catalog Tag Templa
 
 ## Compatibility 
 
-This module is meant for use with Terraform 1.0.0.
+This module is meant for use with Terraform 1.3.0 and above.
 
 ## Usage
 
@@ -20,8 +20,8 @@ These sections describe requirements for using this module.
 
 The following dependencies must be available:
 
-- [Terraform](https://www.terraform.io/downloads.html) >= 1.0.0, < 2.0.0
-- [Terraform Provider for GCP](https://registry.terraform.io/providers/hashicorp/google/latest) >= v4.0.0, < 5.0.0
+- [Terraform](https://www.terraform.io/downloads.html) >= 1.3.0, < 2.0.0
+- [Terraform Provider for GCP](https://registry.terraform.io/providers/hashicorp/google/latest) >= v4.56.0, < 5.0.0
 
 ### Service Account
 
@@ -44,7 +44,7 @@ resources of this module:
 ## Install
 
 ### Terraform
-Be sure you have the correct Terraform version (1.0.0 or greater but less than 2.0), you can choose the binary here:
+Be sure you have the correct Terraform version (1.3.0 or greater but less than 2.0), you can choose the binary here:
 - https://releases.hashicorp.com/terraform/
 
 ## File structure
